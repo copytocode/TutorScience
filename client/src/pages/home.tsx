@@ -100,7 +100,7 @@ export default function Home() {
 
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground">
-            Choose Your Level  <Link href={`/topics?level=`}> Copy to Code</Link>
+            Choose Your Level <Link href=""> Copy to Code</Link>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {levels.map((level) => (
