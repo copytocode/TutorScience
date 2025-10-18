@@ -208,7 +208,8 @@ export class MemStorage implements IStorage {
   }
 
   async isLessonComplete(lessonId: string): Promise<boolean> {
-    for (const progress of this.progress.values()) {
+    const progressArray = Array.from(this.progress.values());
+    for (const progress of progressArray) {
       if (progress.lessonId === lessonId && progress.completed) {
         return true;
       }

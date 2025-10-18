@@ -39,9 +39,9 @@ export default function Exercises() {
 
   const submitMutation = useMutation({
     mutationFn: async (data: SubmitAnswer) => {
-      return await apiRequest<AnswerResult>('POST', '/api/exercises/submit', data);
+      return await apiRequest('POST', '/api/exercises/submit', data) as Promise<AnswerResult>;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: AnswerResult) => {
       setResult(data);
       setShowResult(true);
       if (data.isCorrect) {
