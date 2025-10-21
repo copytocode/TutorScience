@@ -82,7 +82,7 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Master Biology, Chemistry, and Physics with interactive lessons and
+            Master Human Biology, Chemistry, and Physics with interactive lessons and
             practice exercises
           </p>
 
