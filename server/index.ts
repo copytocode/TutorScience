@@ -60,12 +60,24 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  // const port = parseInt(process.env.PORT || '5000', 10);
+  // server.listen({
+  //   port,
+  //   host: "0.0.0.0",
+  //   reusePort: true,
+  // }, () => {
+  //   log(`serving on port ${port}`);
+  // });
+
+const isReplit = !!process.env.REPL_ID; // Replit always injects this env var
+const port = process.env.PORT || 5000;
+
+const options = isReplit
+  ? { host: "0.0.0.0", reusePort: true }
+  : {}; // local = default settings
+
+server.listen(port, options, () => {
+  console.log(`Serving on port ${port}${isReplit ? " (Replit)" : " (Local Mac Mits)"}`);
+});
+
 })();
